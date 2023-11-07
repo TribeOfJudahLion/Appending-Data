@@ -109,6 +109,36 @@ The script provided is a Python program designed to load, process, and combine d
 
 When the script is run, it will process the specified CSV files and print out logs to the console, detailing the steps it has taken and any issues encountered. The final output will be a combined dataset from both files, which can then be used for further analysis or processing.
 
+The output results of the script provide a log of the actions performed during its execution, indicating success in data loading, shaping, and appending operations. Below is a detailed presentation of each step of the output:
+
+1. **Data Loading Confirmation**
+   - `2023-11-07 15:26:06,857 - INFO - Dataset loaded successfully from marketing_campaign_append1.csv`
+   - `2023-11-07 15:26:06,863 - INFO - Dataset loaded successfully from marketing_campaign_append2.csv`
+   
+   These entries confirm that both datasets named `marketing_campaign_append1.csv` and `marketing_campaign_append2.csv` have been successfully loaded. The timestamp shows when the loading was completed, and the 'INFO' level indicates that these are regular log messages, not errors.
+
+2. **Data Shape Information**
+   - `2023-11-07 15:26:06,864 - INFO - Shape of marketing_sample1: (500, 11)`
+   - `2023-11-07 15:26:06,871 - INFO - Shape of marketing_sample2: (500, 11)`
+   
+   These log messages provide information about the dimensions of the loaded datasets. Both `marketing_sample1` and `marketing_sample2` have 500 rows and 11 columns, indicating that the datasets have been correctly trimmed to the specified columns of interest.
+
+3. **Data Preview Logging**
+   - The logs then provide a preview of the first five rows of each loaded dataset, giving a quick glance at the data structure and the type of data contained in each column. The columns included are `ID`, `Year_Birth`, `Education`, and others, up to `NumWebVisitsMonth`. This is useful for a manual check to ensure that the datasets have been loaded and formatted as expected.
+
+4. **Appended Data Summary**
+   - `2023-11-07 15:26:06,876 - INFO - Shape of appended_data: (1000, 11)`
+   
+   After appending, the new dataset `appended_data` contains 1000 rows, which is the sum of the rows from `marketing_sample1` and `marketing_sample2`, confirming that the append operation was successful.
+
+5. **Appended Data Preview**
+   - The log provides a preview of the first five rows of the combined dataset, `appended_data`. This confirms that the data from both original datasets now exists in a single DataFrame. It is important to note that the IDs in the first few rows of `appended_data` match those from `marketing_sample1`, as expected from a vertical stack operation like `pd.concat`.
+
+6. **Duplication Note**
+   - Upon inspecting the provided output, there's a noticeable repetition of the ID 9135 in `marketing_sample2`. This could indicate a potential duplication in the data that might need further investigation.
+
+Overall, these logs serve as a record of the steps the script has performed and also act as an initial check for the user to verify that the script has operated correctly. The logging provides transparency and facilitates troubleshooting if there are any issues with the data processing.
+
 ## Built With
 
 This project leverages several technologies and tools listed below:
